@@ -113,35 +113,37 @@ include_once("koneksi.php");
 if (isset($_POST['simpan'])) {
     if (isset($_POST['id'])) {
         $ubah = mysqli_query($mysqli, "UPDATE dokter SET 
-                                        nama = '" . $_POST['nama'] . "',
-                                        alamat = '" . $_POST['alamat'] . "',
-                                        no_hp = '" . $_POST['no_hp'] . "',
-                                        WHERE
-                                        id = '" . $_POST['id'] . "'");
+                                nama = '" . $_POST['nama'] . "',
+                                alamat = '" . $_POST['alamat'] . "',
+                                no_hp = '" . $_POST['no_hp'] . "'
+                                WHERE
+                                id = '" . $_POST['id'] . "'");
     } else {
         $tambah = mysqli_query($mysqli, "INSERT INTO dokter(nama,alamat,no_hp) 
-                                        VALUES ( 
-                                            '" . $_POST['nama'] . "',
-                                            '" . $_POST['alamat'] . "',
-                                            '" . $_POST['no_hp'] . "'
-                                            '0'
-                                            )");
+                                VALUES ( 
+                                    '" . $_POST['nama'] . "',
+                                    '" . $_POST['alamat'] . "',
+                                    '" . $_POST['no_hp'] . "'
+                                    )");
     }
 
     echo "<script> 
-            document.location='dokter.php';
-            </script>";
+        document.location='dokter.php';
+    </script>";
 }
 
 if (isset($_GET['aksi'])) {
     if ($_GET['aksi'] == 'hapus') {
-        $hapus = mysqli_query($mysqli, "DELETE FROM dokter WHERE id = '" . $_GET['id'] . "'");}
-
+        $hapus = mysqli_query($mysqli, "DELETE FROM dokter WHERE id = '" . $_GET['id'] . "'");
+    }
     echo "<script> 
-            document.location='dokter.php';
-            </script>";
+        document.location='dokter.php';
+    </script>";
 }
 ?>
+</div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRfJ9f5jz3I4/3r5F5I5j5qofnVf5U1kAl7vC4ks7x" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-nDLU77O4f9vG4JqF01f8Uxl5KveGqZyl5Ci8FQITu97uQOGcnJw92ag0C6w5W/pj" crossorigin="anonymous"></script>
 </body>
 </html>

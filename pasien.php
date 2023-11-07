@@ -111,19 +111,19 @@ include_once("koneksi.php");
 <?php
 if (isset($_POST['simpan'])) {
     if (isset($_POST['id'])) {
+        // Corrected table name from 'dokter' to 'pasien'
         $ubah = mysqli_query($mysqli, "UPDATE pasien SET 
                                         nama = '" . $_POST['nama'] . "',
                                         alamat = '" . $_POST['alamat'] . "',
-                                        no_hp = '" . $_POST['no_hp'] . "',
+                                        no_hp = '" . $_POST['no_hp'] . "'
                                         WHERE
                                         id = '" . $_POST['id'] . "'");
     } else {
-        $tambah = mysqli_query($mysqli, "INSERT INTO pasien (nama,alamat,no_hp) 
+        $tambah = mysqli_query($mysqli, "INSERT INTO pasien(nama,alamat,no_hp) 
                                         VALUES ( 
                                             '" . $_POST['nama'] . "',
                                             '" . $_POST['alamat'] . "',
                                             '" . $_POST['no_hp'] . "'
-                                            '0'
                                             )");
     }
 
@@ -134,8 +134,8 @@ if (isset($_POST['simpan'])) {
 
 if (isset($_GET['aksi'])) {
     if ($_GET['aksi'] == 'hapus') {
-        $hapus = mysqli_query($mysqli, "DELETE FROM pasien WHERE id = '" . $_GET['id'] . "'");}
-
+        $hapus = mysqli_query($mysqli, "DELETE FROM pasien WHERE id = '" . $_GET['id'] . "'");
+    }
     echo "<script> 
             document.location='pasien.php';
             </script>";
