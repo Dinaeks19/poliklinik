@@ -85,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     a:hover {
         text-decoration: none;
     }
+    
 </style>
 
 <!DOCTYPE html>

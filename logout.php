@@ -1,11 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION['user'])) {
-    // Hapus session
-    session_unset();
-    session_destroy();
-}
-
-header("Location: index.php");
+session_unset(); // Menghapus semua variabel sesi
+session_destroy(); // Menghancurkan sesi
+header("Location: loginUser.php"); // Redirect ke halaman login atau halaman lain setelah logout
 exit();
 ?>
